@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label for="email">Email</label>
+        <input name="email" type="email" placeholder="Enter your email" required />
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input name="password" type="password" placeholder="Enter your password" required />
+    </div>
+
+    <div>
+        <label for="role">Role</label>
+        <select name="role" required>
+            <option value="Admin">Admin</option>
+            <option value="Learner">Learner</option>
+            <option value="Instructor">Instructor</option>
+        </select>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewData["Error"]?.ToString()))
+{
+    <div style="color: red;">
+        @ViewData["Error"]
+    </div>
+}

@@ -1,0 +1,29 @@
+﻿@model object
+
+@{
+    var user = Model as dynamic; // Cast to dynamic to access properties
+}
+
+<h2>@user.FirstName @user.LastName's Profile</h2>
+
+<form asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
+    <div>
+        <label>Email:</label>
+        <input type="email" value="@user.Email" readonly />
+    </div>
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="FirstName" value="@user.FirstName" />
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="LastName" value="@user.LastName" />
+    </div>
+    <div>
+        <label>Profile Picture:</label>
+        <input type="file" name="ProfilePicture" />
+    </div>
+    <div>
+        <button type="submit">Update Profile</button>
+    </div>
+</form>

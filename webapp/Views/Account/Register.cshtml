@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<!-- Display error message if any -->
+@if (!string.IsNullOrEmpty(ViewData["Error"]?.ToString()))
+{
+    <div style="color:red;">
+        @ViewData["Error"]
+    </div>
+}
+
+<!-- Display success message if any -->
+@if (!string.IsNullOrEmpty(ViewData["Message"]?.ToString()))
+{
+    <div style="color:green;">
+        @ViewData["Message"]
+    </div>
+}
+
+<form asp-action="Register" method="post">
+    <div>
+        <label for="email">Email:</label>
+        <input name="email" type="email" placeholder="Enter your email" required />
+    </div>
+    <br />
+    <div>
+        <label for="firstName">First Name:</label>
+        <input name="firstName" type="text" placeholder="Enter your first name" required />
+    </div>
+    <br />
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input name="lastName" type="text" placeholder="Enter your last name" required />
+    </div>
+    <br />
+    <div>
+        <label for="password">Password:</label>
+        <input name="password" type="password" placeholder="Enter your password" required />
+    </div>
+    <br />
+    <div>
+        <label for="role">Role:</label>
+        <select name="role" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="Admin">Admin</option>
+            <option value="Learner">Learner</option>
+            <option value="Instructor">Instructor</option>
+        </select>
+    </div>
+    <br />
+    <button type="submit">Register</button>
+</form>

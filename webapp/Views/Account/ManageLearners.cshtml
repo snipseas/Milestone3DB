@@ -1,0 +1,30 @@
+﻿@model IEnumerable<webapp.Models.Learner>
+
+<h2>Manage Learners</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var learner in Model)
+        {
+            <tr>
+                <td>@learner.Email</td>
+                <td>@learner.FirstName</td>
+                <td>@learner.LastName</td>
+                <td>
+                    <form asp-action="RemoveLearner" method="post">
+                        <input type="hidden" name="learnerId" value="@learner.LearnerId" />
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
